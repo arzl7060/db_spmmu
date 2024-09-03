@@ -9,14 +9,14 @@
 		</a>
 		<ul class="side-menu top">
 			<li>
-				<a href="index.php">
+				<a href="../template/index.php">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
 			<li class="active">
-				<a href="../db_santri/tb_santri.php">
-					<i class='bx bxs-shopping-bag-alt' ></i>
+				<a href="tb_santri.php">
+					<i class='bx bxs-group' ></i>
 					<span class="text">Data Santri</span>
 				</a>
 			</li>
@@ -28,13 +28,13 @@
 			</li>
 			<li>
 				<a href="../db_kamar/tb_kamar.php">
-					<i class='bx bxs-message-dots' ></i>
+					<i class='bx bxs-checkbox' ></i>
 					<span class="text">Data Kamar</span>
 				</a>
 			</li>
 			<li>
 				<a href="../db_kelas/tb_kamar.php">
-					<i class='bx bxs-group' ></i>
+					<i class='bx bxs-layer-plus' ></i>
 					<span class="text">Data Kelas</span>
 				</a>
 			</li>

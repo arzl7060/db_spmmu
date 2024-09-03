@@ -133,7 +133,7 @@ require_once '../template/navbar.php';
 				<input type="date" id="tgl_lahir1" name="tgl_lahir1" class="form-control">
 			</div>
 		</div>
-		<div style="width: 47%;" class="kanan">
+		<div style="width: 47%; margin-bottom: 1px;" class="kanan">
 			<label>Pendidikan</label>
 			<input type="text" class="form-control" name="pendidikan" id="pendidikan">
 		</div>
@@ -177,7 +177,7 @@ require_once '../template/navbar.php';
 			<input type="text" class="form-control" name="telepon2" id="telepon2">
 		</div>
 		<h4>Data Wali</h4>
-		<div style="width: 47%" class="kiri">
+		<div style="width: 47%; margin-bottom:1px" class="kiri">
 			<label>Nama Wali</label>
 			<input type="text" class="form-control" name="ibu" id="ibu">
 		</div>
@@ -222,9 +222,13 @@ require_once '../template/navbar.php';
 				<option>Pilih...</option>
 			</select>
 		</div>
+		<div style="width: 100%; margin-bottom: 1px;">
+			<label>Upload Foto</label>
+			<input type="text" class="form-control" name="pekerjaan3" id="pekerjaan3">
+		</div>
 
 
-		<div style=" float: left; margin-left: 15px; margin-bottom :300px; margin-top: 5px;">
+		<div style=" float: left; margin-left: 15px; margin-bottom :300px; margin-top: 10px;">
 			<a href="" class="btn btn-primary">Simpan</a>
 		</div>
 
