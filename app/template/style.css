@@ -532,37 +532,24 @@ body {
 
 
 
-
-
-
-
-
-
 @media screen and (max-width: 768px) {
 	#sidebar {
 		width: 200px;
 	}
-
 	#content {
 		width: calc(100% - 60px);
 		left: 200px;
 	}
-
 	#content nav .nav-link {
 		display: none;
 	}
 }
 
 
-
-
-
-
 @media screen and (max-width: 576px) {
 	#content nav form .form-input input {
 		display: none;
 	}
-
 	#content nav form .form-input button {
 		width: auto;
 		height: auto;
@@ -570,7 +557,6 @@ body {
 		border-radius: none;
 		color: var(--dark);
 	}
-
 	#content nav form.show .form-input input {
 		display: block;
 		width: 100%;
@@ -582,12 +568,10 @@ body {
 		color: var(--light);
 		background: var(--red);
 	}
-
 	#content nav form.show ~ .notification,
 	#content nav form.show ~ .profile {
 		display: none;
 	}
-
 	#content main .box-info {
 		grid-template-columns: 1fr;
 	}
@@ -607,14 +591,88 @@ body {
 /* KAMAR */
 #content .container form{
 	margin-bottom: 7px;
-	margin-top: 0px;
 }
 #content .container form input{
 	margin-bottom: 7px;
 }
 #content .container form label{
 	margin-bottom: 2px;
+	color: var(--dark);	
 }
+
+/* select-box */
+#content form .select-box{
+	position: relative;
+	width: 300px;
+}
+#content form .select-box select{
+	width: 50%;
+	position: relative;
+	padding: 5px 0px 3px 5px;
+	font: 300 16px Arial;
+	/* -webkit-appearance: none; */
+	/* appearance: none; */
+	color: #1c69dd;
+	border: 1px solid #95e0f3;
+}
+/* KAMAR */
+
+
+/* SANTRI */
+
+/* Title */
+#content .sub-home {
+	width: 100%;
+	padding: 36px 24px;
+	font-family: var(--poppins);
+	height: 135px;
+	overflow-y: auto;
+	margin: 0px 0px 0px 0px;
+}
+#content .sub-home .head-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	grid-gap: 16px;
+	flex-wrap: wrap;
+}
+#content .sub-home .head-title .left h1 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: var(--dark);
+}
+#content .sub-home .head-title .left .breadcrumb {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+}
+#content .sub-home .head-title .left .breadcrumb li {
+	color: var(--dark);
+}
+#content .sub-home .head-title .left .breadcrumb li a {
+	color: var(--dark-grey);
+	pointer-events: none;
+}
+#content .sub-home .head-title .left .breadcrumb li a.active {
+	color: var(--blue);
+	pointer-events: unset;
+}
+/* Title */
+
+/* Form */
+#content .container form h4{
+	color: var(--dark);
+}
+#content .container form .ns{
+	float: left;
+	width: 47%;
+}
+#content .container form label{
+	margin-bottom: 2px;
+	color: var(--dark);	
+}
+/* select bro */
 #content .container form .select-bro {
 	float: right;
 	width: 47%;
@@ -631,14 +689,7 @@ body {
 	color: #52575e;
 	border: 1px solid #72cee6;
 }
-/* KAMAR */
-
-
-/* SANTRI */
-#content .container form .ns{
-	float: left;
-	width: 47%;
-}
+/* select bro */
 
 #content .container form .select-bri {
 	float: left;
@@ -663,19 +714,5 @@ body {
 #content .container form .kanan{
 	float: right;
 }
-/* select-box */
-#content form .select-box{
-	position: relative;
-	width: 300px;
-}
-#content form .select-box select{
-	width: 50%;
-	position: relative;
-	padding: 5px 0px 3px 5px;
-	font: 300 16px Arial;
-	/* -webkit-appearance: none; */
-	/* appearance: none; */
-	color: #1c69dd;
-	border: 1px solid #95e0f3;
-}
+
 /* SANTRI */

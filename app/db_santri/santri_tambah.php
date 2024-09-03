@@ -12,9 +12,7 @@ require_once '../template/navbar.php';
 <link href="../template/style.css" rel="stylesheet">
 
 
-
-<br>
-<main>
+<div class="sub-home">
 	<div class="head-title">
 		<div class="left">
 			<h1>Menambah Data Santri</h1>
@@ -29,7 +27,7 @@ require_once '../template/navbar.php';
 			</ul>
 		</div>
 	</div>
-</main>
+</div>
 
 <div class="container" style="margin-left: 30px; width: 600px;">
 	<form action="" method="post">
