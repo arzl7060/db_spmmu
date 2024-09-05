@@ -667,19 +667,9 @@ body {
 
 
 /* KAMAR */
-#content .container form {
-	margin-bottom: 7px;
+#content .kamar{
+	background: var(--grey);
 }
-
-#content .container form input {
-	margin-bottom: 7px;
-}
-
-#content .container form label {
-	margin-bottom: 2px;
-	color: var(--dark);
-}
-
 /* select-box */
 #content form .select-box {
 	position: relative;
@@ -703,46 +693,53 @@ body {
 /* SANTRI */
 
 /* Title */
-#content .sub-home {
+/* #content main {
 	width: 100%;
 	padding: 36px 24px;
 	font-family: var(--poppins);
-	height: 135px;
+	max-height: calc(100vh - 56px);
 	overflow-y: auto;
 	margin: 0px 0px 0px 0px;
+} */
+#content .container{
+	position: relative;
+	width: 100%;
+	padding: 30px 30px;
+	max-height: calc(100vh - 56px);
+	overflow-y: auto;
+	margin: 0px 0px 0px 0px; 
 }
-
-#content .sub-home .head-title {
+#content .container .head-santri {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	grid-gap: 16px;
 	flex-wrap: wrap;
+	font-family: var(--poppins);
 }
-
-#content .sub-home .head-title .left h1 {
+#content .container .head-santri .left h1 {
 	font-size: 36px;
 	font-weight: 600;
 	margin-bottom: 10px;
 	color: var(--dark);
 }
 
-#content .sub-home .head-title .left .breadcrumb {
+#content .container .head-santri .left .breadcrumb {
 	display: flex;
 	align-items: center;
 	grid-gap: 16px;
 }
 
-#content .sub-home .head-title .left .breadcrumb li {
+#content .container .head-santri .left .breadcrumb li {
 	color: var(--dark);
 }
 
-#content .sub-home .head-title .left .breadcrumb li a {
+#content .container .head-santri .left .breadcrumb li a {
 	color: var(--dark-grey);
 	pointer-events: none;
 }
 
-#content .sub-home .head-title .left .breadcrumb li a.active {
+#content .container .head-santri .left .breadcrumb li a.active {
 	color: var(--blue);
 	pointer-events: unset;
 }
@@ -750,7 +747,18 @@ body {
 /* Title */
 
 /* Form */
+#content .container form {
+	margin-bottom: 7px;
+	width: 600px;
+}
 #content .container form h4 {
+	color: var(--dark);
+}
+#content .container form input {
+	margin-bottom: 7px;
+}
+#content .container form label {
+	margin-bottom: 2px;
 	color: var(--dark);
 }
 
@@ -859,27 +867,23 @@ body {
 
 /* Post Foto */
 #content .container form .foto {
-	width: 47%;
-	margin-right: auto;
-}
-
-#content .container form .foto .form-input {
-	display: flex;
-	align-items: center;
-	height: 36px;
-}
-
-#content .container form .foto .form-input input {
-	flex-grow: 1;
-	padding: 0 16px;
-	height: 100%;
-	border: none;
+	width: 80%;
+	height: 50px;
+	border-radius: 8px 8px 8px 8px;
 	background: var(--light);
-	border-radius: 36px 36px 36px 36px;
-	outline: none;
-	width: 100%;
-	color: var(--dark);
+	float: right;
+	margin: 7px 0px 50px 0px;
 }
+#content .container form .foto-label {
+	width: 20%;
+	color: var(--dark);
+	float: left;
+	margin: 20px 0px 50px 0px;
+}
+#content .container form .foto input {
+margin: 12px 0px 0px 10px;
+}
+
 
 /* Post Foto */
 

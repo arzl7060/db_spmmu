@@ -17,7 +17,6 @@ $query = mysqli_query($mysqli, "SELECT * from tb_santri");
 		<div class="left">
 			<h1>Data Santri</h1>
 		</div>
-
 	</div><br>
 	<a href="santri_tambah.php" class="btn btn-primary">Tambah Santri</a>
 
