@@ -1,18 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 /* BUILD */
+
 * {
+	/*  * = sebuah aturan yang dikenal sebagai "reset CSS" atau "reset stylesheet." Aturan ini digunakan untuk mengatur beberapa properti dasar pada semua elemen HTML secara global. */
 	margin: 0;
+	/* Mengatur margin (ruang di sekitar elemen) menjadi 0. Ini berarti bahwa tidak ada ruang tambahan di sekitar elemen. */
 	padding: 0;
+	/* Mengatur padding (ruang di dalam elemen) menjadi 0. Ini berarti bahwa tidak ada ruang tambahan di dalam elemen. */
 	box-sizing: border-box;
+	/* Mengatur model penghitungan ukuran elemen menjadi border-box. Dengan model ini, lebar elemen ditentukan oleh lebar konten, margin, dan padding. Jika tidak menggunakan border-box, maka lebar elemen hanya ditentukan oleh konten. */
 }
 
 a {
 	text-decoration: none;
+	/* menghilangkan dekorasi teks pada elemen <a> (linky). Dekorasi teks biasanya berupa garis bawah yang muncul di bawah teks link, dapat memiliki lebih banyak kontrol atas tampilan link. Misalnya, Anda dapat menambahkan warna, font, atau efek lainnya */
 }
 
 li {
 	list-style: none;
+	/* menghilangkan gaya daftar pada elemen <li> (item daftar). Gaya daftar biasanya berupa tanda titik atau tanda bintang yang muncul sebelum teks item daftar */
 }
 
 :root {
@@ -32,21 +39,25 @@ li {
 	--light-orange: #FFE0D3;
 	--green: #06a342;
 }
+/* mendefinisikan beberapa variabel CSS custom menggunakan fitur variabel (variables) CSS. Variabel-variabel ini dapat digunakan di dalam file CSS tersebut atau bahkan didalam file CSS lainnya untuk membuat kode lebih modular dan mudah digunakan. */
 
 html {
 	overflow-x: hidden;
 }
+/* mengatur bagaimana konten yang melebihi lebar elemen ditampilkan. Dalam kasus ini, overflow-x: hidden; menghilangkan konten yang melebihi lebar elemen dan memotongnya, sehingga tidak menampilkan bagian yang melebihi. */
 
 body.dark {
 	--light: #0C0C1E;
 	--grey: #060714;
 	--dark: #FBFBFB;
 }
+/* mengatur beberapa variabel CSS custom menggunakan fitur variabel (variables) CSS dalam tema gelap (body.dark) */
 
 body {
 	background: var(--grey);
 	overflow-x: hidden;
 }
+
 
 /* BUILD */
 
@@ -61,24 +72,34 @@ body {
 /* SIDEBAR */
 #sidebar {
 	position: fixed;
+	/* Fungsi: Elemen yang diberi position: fixed dihilangkan dari dokumen aliran, yang berarti elemen tersebut tidak akan mempengaruhi posisi elemen lain di dalam dokumen. */
 	top: 0;
 	left: 0;
 	width: 280px;
 	height: 100%;
 	background: var(--light);
 	z-index: 2000;
+	/*  mengatur urutan tampilan elemen yang memiliki posisi relatif, absulut, atau fixed. Elemen dengan nilai z-index yang lebih tinggi akan ditampilkan di atas elemen dengan nilai z-index yang lebih rendah. */
 	font-family: var(--lato);
 	transition: .3s ease;
+	/* mengatur durasi transisi dengan menambahkan nilai numerik diikuti oleh satuan waktu (seperti s untuk detik atau ms untuk milidetik). Contoh lainnya: transition: 1s ease (1 detik), transition: .5s ease (500 milidetik). */
+
+	/* Properti transition memiliki dua bagian utama: durasi dan efek transisi. */
 	overflow-x: hidden;
 	scrollbar-width: none;
 }
 
 #sidebar::--webkit-scrollbar {
 	display: none;
+	/* menghilangkan scrollbar yang muncul pada elemen dengan ID #sidebar di browser Chrome dan Safari.  */
 }
 
 #sidebar.hide {
 	width: 60px;
+	/* mengatur lebar elemen dengan ID #sidebar ketika elemen tersebut memiliki kelas hide */
+
+	/* <button onclick="document.getElementById('sidebar').classList.add('hide')">Hide Sidebar</button>
+	<button onclick="document.getElementById('sidebar').classList.remove('hide')">Show Sidebar</button> */
 }
 
 #sidebar .brand {
@@ -89,16 +110,19 @@ body {
 	align-items: center;
 	color: var(--blue);
 	position: sticky;
+	/* Elemen dengan position: sticky akan berubah-ubah posisinya tergantung pada posisi viewport pengguna. Elemen tersebut akan berada di posisi relatif hingga mencapai suatu offset dalam viewport, setelah itu elemen tersebut akan "menempel" di posisi tersebut */
 	top: 0;
 	left: 0;
 	background: var(--light);
 	z-index: 500;
 	padding-bottom: 20px;
 	box-sizing: content-box;
+	/* Properti box-sizing: content-box dalam CSS digunakan untuk mengatur model penghitungan ukuran elemen. Dalam model ini, lebar elemen ditentukan hanya oleh konten elemen, tanpa memasukkan padding, border, atau margin. */
 }
 
 #sidebar .brand .bx {
 	min-width: 60px;
+	/* mengatur nilai minimum lebar elemen */
 	display: flex;
 	justify-content: center;
 }
@@ -106,6 +130,7 @@ body {
 #sidebar .side-menu {
 	width: 100%;
 	margin-top: 48px;
+	/* cursor: pointer; = Mengubah cursor menjadi tangan */
 }
 
 #sidebar .side-menu li {
@@ -127,6 +152,7 @@ body {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
+	/* border-bottom: 1px solid #ccc; = Garis bawah untuk memisahkan item */
 	top: -40px;
 	right: 0;
 	box-shadow: 20px 20px 0 var(--grey);
@@ -702,8 +728,8 @@ body {
 	margin: 0px 0px 0px 0px;
 } */
 #content .container{
-	position: relative;
-	width: 100%;
+	
+	max-width: 100%;
 	padding: 30px 30px;
 	max-height: calc(100vh - 56px);
 	overflow-y: auto;
@@ -711,15 +737,20 @@ body {
 }
 #content .container .head-santri {
 	display: flex;
+	/* layar susun samping */
 	align-items: center;
+	/* posisi tengah baik susunan vertikal/horizontal */
 	justify-content: space-between;
+	/* membuat kontainer fleksibel yang memiliki elemen-elemen yang berada di tengah-tengah kontainer dengan ruang yang sama di antara setiap elemen */
 	grid-gap: 16px;
+	/* jarak samping bxk objek */
 	flex-wrap: wrap;
+	/* Jika elemen-elemen tidak muat dalam satu baris, maka flex-wrap: wrap akan membuat baris baru untuk menampung elemen-elemen tersebut */
 	font-family: var(--poppins);
 }
 #content .container .head-santri .left h1 {
 	font-size: 36px;
-	font-weight: 600;
+	font-weight: 600px;
 	margin-bottom: 10px;
 	color: var(--dark);
 }
@@ -728,6 +759,7 @@ body {
 	display: flex;
 	align-items: center;
 	grid-gap: 16px;
+	background: none;
 }
 
 #content .container .head-santri .left .breadcrumb li {
@@ -753,116 +785,74 @@ body {
 }
 #content .container form h4 {
 	color: var(--dark);
+
 }
-#content .container form input {
-	margin-bottom: 7px;
+
+#content .container form ul {
+	position: relative;
+	display: flex;
+	max-width: 100%;
+	height: 70px;
+	align-items: center;
+	grid-gap: 26px;
+	margin-bottom: 8px;
 }
-#content .container form label {
-	margin-bottom: 2px;
+#content .container form ul li{
+	position: relative;
+	width: 290px;
+	margin: none;
+	float: left;
+	align-items: center;
+	margin: none;
+	grid-gap: 9px;
+}
+#content .container form ul li label {
 	color: var(--dark);
 }
-
-#content .container form .ns {
-	float: left;
-	width: 47%;
-}
-
-#content .container form .ns input {
-	flex-grow: 1;
+#content .container form ul li input {
+	width: 100%;
+	height: 36px;
 	padding: 0 16px;
-	height: 35px;
 	border: none;
 	background: var(--light);
 	border-radius: 36px 36px 36px 36px;
 	outline: none;
-	width: 100%;
 	color: var(--dark);
+	margin-bottom: 5px;
 }
-
-#content .container form label {
-	margin-bottom: 2px;
+#content .container form ul li .date {
+	width: 70%;
+	height: 36px;
+	padding: 0 16px;
+	border: none;
+	background: var(--light);
+	border-radius: 0px 0px 0px 0px;
+	outline: none;
 	color: var(--dark);
+	margin-bottom: 5px;
 }
 
 /* select bro */
-#content .container form .select-bro {
-	float: right;
-	width: 47%;
-}
-
 #content .container form .select-bro label {
 	width: 100%;
 }
-
 #content .container form .select-bro select {
+	padding: 0 16px;
+	border-radius: 36px 36px 36px 36px;
 	width: 70%;
 	height: 36px;
 	font: 300 16px Arial;
-	color: #52575e;
+	color: #454e5a;
 	border: none;
 	background: var(--light);
 }
-
 /* select bro */
-
-#content .container form .select-bri {
-	float: left;
-	width: 47%;
-}
-
-#content .container form .select-bri label {
-	width: 100%;
-}
-
-#content .container form .select-bri select {
-	width: 70%;
-	height: 36px;
-	font: 300 16px Arial;
-	/* -webkit-appearance: none; */
-	/* appearance: none; */
-	color: #52575e;
-	border: none;
-	background: var(--light);
-	;
-}
-
-/* form control */
-#content .container form .kiri {
-	float: left;
-}
-
-#content .container form .kiri input {
-	flex-grow: 1;
-	padding: 0 16px;
-	height: 35px;
-	border: none;
-	background: var(--light);
-	border-radius: 36px 36px 36px 36px;
-	outline: none;
-	width: 100%;
-	color: var(--dark);
-}
-
-#content .container form .kanan {
-	float: right;
-}
-
-#content .container form .kanan input {
-	flex-grow: 1;
-	padding: 0 16px;
-	height: 35px;
-	border: none;
-	background: var(--light);
-	border-radius: 36px 36px 36px 36px;
-	outline: none;
-	width: 100%;
-	color: var(--dark);
-}
 
 #content .container form .form-floating textarea {
 	background: var(--light);
 	border: none;
 	border-radius: 8px 8px 8px 8px;
+	padding: 0 16px;
 }
 
 /* Post Foto */
@@ -884,6 +874,19 @@ body {
 margin: 12px 0px 0px 10px;
 }
 
+.button {
+	background-color: #4CAF50; /* Warna awal */
+	color: white; /* Warna teks awal */
+	padding: 10px 20px; /* Padding untuk membuat lebih besar */
+	border: none; /* Menghilangkan border */
+	border-radius: 5px; /* Mengatur radius sudut */
+	cursor: pointer; /* Mengubah cursor menjadi tangan */
+	transition: background-color 1s ease, color .3s ease; /* Mengatur transisi warna dan teks */
+  }
+  .button:hover {
+	background-color: #3e8e41; /* Warna saat dihover */
+	color: #fff; /* Warna teks saat dihover */
+  }
 
 /* Post Foto */
 

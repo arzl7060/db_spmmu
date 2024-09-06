@@ -2,7 +2,7 @@
 
 include "../../aute/koneksi.php";
 require_once '../template/header.php';
-require_once '../template/sidebar.php';
+require_once 'sidebar.php';
 require_once '../template/navbar.php';
 
 
