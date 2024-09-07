@@ -56,7 +56,7 @@ require_once '../template/navbar.php';
 		<ul>
 			<li>
 				<label>Nomor Induk Kependudukan</label>
-				<input type="text" name="nisn" id="nisn">
+				<input type="text" name="nik" id="nik">
 			</li>
 			<li>
 				<label>Nomor Induk Siswa Nasional</label>
@@ -105,7 +105,7 @@ require_once '../template/navbar.php';
 			</li>
 		</ul>
 		<div class="form-floating">
-			<label class="kiri">Alamat</label>
+			<label>Alamat</label>
 			<textarea placeholder="Contoh: Dusun Krajan RT 001 RW 001 Desa Sukorejo Sukowono Jember Jawa Timur"
 				id="alamat" style="height: 70px; width: 100%; margin-bottom: 5px;"></textarea>
 		</div>
@@ -143,7 +143,7 @@ require_once '../template/navbar.php';
 		<ul>
 			<li>
 				<label>Tanggal Lahir</label>
-				<input class="date" type="date" id="tgl_lahir1" name="tgl_lahir1">
+				<input  class="date" type="date" id="tgl_lahir1" name="tgl_lahir1">
 			</li>
 			<li class="select-bro">
 				<label>Pendidikan</label>
@@ -190,7 +190,7 @@ require_once '../template/navbar.php';
 			</li>
 			<li>
 				<label>Tanggal lahir</label>
-				<input type="date" id="tgl_lahir2" name="tgl_lahir2">
+				<input  class="date" type="date" id="tgl_lahir2" name="tgl_lahir2">
 			</li>
 		</ul>
 		<ul>
@@ -227,7 +227,7 @@ require_once '../template/navbar.php';
 		<ul>
 			<li>
 				<label>Nama Wali</label>
-				<input type="text" name="ibu" id="ibu">
+				<input type="text" name="wali" id="wali">
 			</li>
 			<li>
 				<label>Nomor Induk Kependudukan</label>
@@ -249,14 +249,22 @@ require_once '../template/navbar.php';
 		<ul>
 			<li>
 				<label>Nomor Induk Santri</label>
-				<input type="text" name="nis" id="ibu">
+				<input type="text" name="nis" id="nis">
 			</li>
 		</ul>
 		<ul>
 			<li class="select-bro">
 				<label>Madrasah</label>
-				<select name="madrasah" id="madrasah">
+				<select name="madrasah" id="madrasah" onchange="madra()">
 					<option>Pilih...</option>
+					<?php
+					$query = mysqli_query($mysqli, "SELECT * FROM tb_madrasah");
+					while ($data = mysqli_fetch_array($query)) {
+						?>
+						<option value="<?= $data['id_lembaga'] ?>"><?= $data['nama_madrasah'] ?></option>
+						<?php
+					}
+					?>
 				</select>
 			</li>
 			<li class="select-bro">
@@ -271,6 +279,15 @@ require_once '../template/navbar.php';
 				<label>Sekolah Formal</label>
 				<select name="formal" id="formal">
 					<option>Pilih...</option>
+					<?php
+					$query = mysqli_query($mysqli, "SELECT * FROM tb_sekolah");
+					while ($data = mysqli_fetch_array($query)) {
+						?>
+						<option value="<?= $data['id_lembaga'] ?>"><?= $data['nama_sekolah'] ?></option>
+						<?php
+					}
+					?>
+					
 				</select>
 			</li>
 			<li class="select-bro">
@@ -289,7 +306,7 @@ require_once '../template/navbar.php';
 
 
 		<div style="margin-left: 230px; margin-bottom :300px;">
-			<a href="" class="btn btn-primary">Simpan</a>
+			<a href="example.php" class="btn btn-primary">Simpan</a>
 		</div>
 
 
@@ -298,12 +315,16 @@ require_once '../template/navbar.php';
 
 </section>
 
-<script src="../template/jquery.js"></script>
-<script src="../template/app/template/jquery-ui-1.14.0.custom/jquery-ui.js"></script>
 <script src="../template/app/template/jquery-ui-1.14.0.custom/jquery-ui.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
 	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="../template/script.js"></script>
+<script>
+	function madra() {
+		var madrasah = $('#madrasah').val();
+		$('#kls_madrasah').load("get_klsmadrasah.php?id=" + madrasah + "");
+	}
+</script>
 
 </body>
 
