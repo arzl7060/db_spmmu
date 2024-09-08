@@ -8,7 +8,7 @@ require_once '../template/navbar.php';
 <!-- CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="../template/app/template/jquery-ui-1.14.0.custom/jquery-ui.css">
+
 <link href="../template/style.css" rel="stylesheet">
 
 
@@ -101,7 +101,7 @@ require_once '../template/navbar.php';
 			</li>
 			<li>
 				<label>Sekolah Asal</label>
-				<input type="text" name="sekolah" id="sekolah">
+				<input type="text" name="asal_sekolah" id="asal_sekolah">
 			</li>
 		</ul>
 		<div class="form-floating">
@@ -143,7 +143,7 @@ require_once '../template/navbar.php';
 		<ul>
 			<li>
 				<label>Tanggal Lahir</label>
-				<input  class="date" type="date" id="tgl_lahir1" name="tgl_lahir1">
+				<input class="date" type="date" id="tgl_lahir1" name="tgl_lahir1">
 			</li>
 			<li class="select-bro">
 				<label>Pendidikan</label>
@@ -190,7 +190,7 @@ require_once '../template/navbar.php';
 			</li>
 			<li>
 				<label>Tanggal lahir</label>
-				<input  class="date" type="date" id="tgl_lahir2" name="tgl_lahir2">
+				<input class="date" type="date" id="tgl_lahir2" name="tgl_lahir2">
 			</li>
 		</ul>
 		<ul>
@@ -255,16 +255,13 @@ require_once '../template/navbar.php';
 		<ul>
 			<li class="select-bro">
 				<label>Madrasah</label>
-				<select name="madrasah" id="madrasah" onchange="madra()">
+				<select name="madrasah" id="madrasah">
 					<option>Pilih...</option>
 					<?php
-					$query = mysqli_query($mysqli, "SELECT * FROM tb_madrasah");
-					while ($data = mysqli_fetch_array($query)) {
-						?>
-						<option value="<?= $data['id_lembaga'] ?>"><?= $data['nama_madrasah'] ?></option>
-						<?php
-					}
-					?>
+					$madrasah = mysqli_query($mysqli, "SELECT * FROM tb_madrasah");
+					while ($row = mysqli_fetch_assoc($madrasah)): ?>
+						<option value="<?= $row['id_madrasah']; ?>"><?= $row['nama_madrasah']; ?></option>
+					<?php endwhile; ?>
 				</select>
 			</li>
 			<li class="select-bro">
@@ -277,17 +274,13 @@ require_once '../template/navbar.php';
 		<ul>
 			<li class="select-bro">
 				<label>Sekolah Formal</label>
-				<select name="formal" id="formal">
+				<select name="sekolah" id="sekolah">
 					<option>Pilih...</option>
 					<?php
-					$query = mysqli_query($mysqli, "SELECT * FROM tb_sekolah");
-					while ($data = mysqli_fetch_array($query)) {
-						?>
-						<option value="<?= $data['id_lembaga'] ?>"><?= $data['nama_sekolah'] ?></option>
-						<?php
-					}
-					?>
-					
+					$sekolah = mysqli_query($mysqli, "SELECT * FROM tb_sekolah");
+					while ($row = mysqli_fetch_assoc($sekolah)): ?>
+						<option value="<?= $row['id_sekolah']; ?>"><?= $row['nama_sekolah']; ?></option>
+					<?php endwhile; ?>
 				</select>
 			</li>
 			<li class="select-bro">
@@ -315,17 +308,43 @@ require_once '../template/navbar.php';
 
 </section>
 
-<script src="../template/app/template/jquery-ui-1.14.0.custom/jquery-ui.min.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
 	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="../template/script.js"></script>
 <script>
-	function madra() {
-		var madrasah = $('#madrasah').val();
-		$('#kls_madrasah').load("get_klsmadrasah.php?id=" + madrasah + "");
-	}
+	$(document).ready(function () {
+		$("#madrasah").change(function () {
+			var id_madrasah = $(this).val();
+			$.ajax({
+				url: "get_klsmadrasah.php",
+				method: "POST",
+				data: { id_madrasah: id_madrasah },
+				success: function (data) {
+					$("#kls_madrasah").html(data);
+					// $("#kecamatan").html('<option value="">Pilih Kecamatan</option>');
+				}
+			});
+		});
+	});
 </script>
 
+<script>
+	$(document).ready(function () {
+		$("#sekolah").change(function () {
+			var id_sekolah = $(this).val();
+			$.ajax({
+				url: "get_klsformal.php",
+				method: "POST",
+				data: { id_sekolah: id_sekolah },
+				success: function (data) {
+					$("#kls_formal").html(data);
+					// $("#kecamatan").html('<option value="">Pilih Kecamatan</option>');
+				}
+			});
+		});
+	});
+</script>
 </body>
 
 </html>

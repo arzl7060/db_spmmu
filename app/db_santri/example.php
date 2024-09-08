@@ -1,42 +1,65 @@
+<?php
+include '../../aute/koneksi.php';
+require_once '../template/header.php';
+require_once 'sidebar.php';
+require_once '../template/navbar.php'
+
+  ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <title>Document</title>
+  <title>Combobox Bertingkat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../template/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="select-bro">
-        <label>Madrasah</label>
-        <select name="madrasah" id="madrasah" onchange="kelas()">
-            <option>Pilih...</option>
-            <?php
-            include '../../aute/koneksi.php';
-            $query = mysqli_query($mysqli, "SELECT * FROM tb_madrasah");
-            while ($data = mysqli_fetch_array($query)) {
-                ?>
-                <option value="<?= $data['id_lembaga'] ?>"><?= $data['nama_madrasah'] ?></option>
-            <?php } ?>
-        </select>
+  <h1>Combobox Bertingkat</h1>
+  <form>
+    <div>
+      <label for="madrasah">Madrasah:</label>
+      <select name="madrasah" id="madrasah">
+        <option value="">Pilih Madrasah</option>
+        <?php
+        $madrasah = mysqli_query($mysqli, "SELECT * FROM tb_madrasah");
+        while ($row = mysqli_fetch_assoc($madrasah)): ?>
+          <option value="<?= $row['id_madrasah']; ?>"><?= $row['nama_madrasah']; ?></option>
+        <?php endwhile; ?>
+      </select>
     </div>
+    <div>
+      <label for="kls_madrasah">kelas:</label>
+      <select name="kls_madrasah" id="kls_madrasah">
+        <option value="">Pilih Kelas</option>
+      </select>
+    </div>
+    <div>
+      <label for="kecamatan">Kecamatan:</label>
+      <select name="kecamatan" id="kecamatan">
+        <option value="">Pilih Kecamatan</option>
+      </select>
+    </div>
+  </form>
+  <script src="../template/jquery.js"></script>
 
-    
-        <label>Kelas Madrasah</label>
-        <select name="kls_madrasah" id="kls_madrasah">
-
-
-
-    <script>
-        function kelas() {
-            var madrasah = $('#madrasah').val();
-            $('#kls_madrasah').load("get_klsmadrasah.php?id=" +madrasah+ "");
-        }
-    </script>
-    <script src="../template/script.js"></script>
-    
+  <script>
+    $(document).ready(function () {
+      $("#madrasah").change(function () {
+        var id_madrasah = $(this).val();
+        $.ajax({
+          url: "get_klsmadrasah.php",
+          method: "POST",
+          data: { id_madrasah: id_madrasah },
+          success: function (data) {
+            console.log(data);
+            $("#kls_madrasah").html(data);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>

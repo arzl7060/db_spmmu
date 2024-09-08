@@ -1,9 +1,9 @@
 <?php
 include '../../aute/koneksi.php';
 
-if (isset($_POST['id_madrasah'])) {
-  $id_madrasah = $_POST['id_madrasah'];
-  $kelas = "SELECT * FROM kelas_madrasah WHERE id_madrasah = '$id_madrasah'";
+if (isset($_POST['id_sekolah'])) {
+  $id_sekolah = $_POST['id_sekolah'];
+  $kelas = "SELECT * FROM kelas_formal WHERE id_sekolah = '$id_sekolah'";
   $result = mysqli_query($mysqli, $kelas);
 
   if (!$result) {

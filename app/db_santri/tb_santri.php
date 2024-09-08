@@ -47,7 +47,7 @@ $query = mysqli_query($mysqli, "SELECT * from tb_santri");
 			$no++;
 			?>
 			<tr>
-				<td><?=$no?></td>
+				<td><?= $no ?></td>
 				<td> $result['nama_santri']; ?></td>
 				<td> $result['nis']; ?></td>
 				<td> $result['alamat']; ?></td>
