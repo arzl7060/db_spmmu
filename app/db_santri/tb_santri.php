@@ -9,17 +9,30 @@ $query = mysqli_query($mysqli, "SELECT * from tb_santri");
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+<link href="../template/style.css" rel="stylesheet">
 <!-- MAIN -->
 <main>
-	<link href="../template/style.css" rel="stylesheet">
 	<div class="head-title">
 		<div class="left">
 			<h1>Data Santri</h1>
 		</div>
 	</div><br>
-	<a href="santri_tambah.php" class="btn btn-primary">Tambah Santri</a>
-
+	<ul class="controler">
+		<li>
+			<a href="santri_tambah.php" class="btn btn-primary">Tambah Santri</a>
+		</li>
+		<li class="select-control">
+			<label>Santri</label>
+			<select name="papi" id="papi">
+				<option>Semua santri</option>
+				<?php
+				$jenis = mysqli_query($mysqli, "SELECT * FROM jenis");
+				while ($row = mysqli_fetch_assoc($jenis)): ?>
+					<option value="<?= $row['id_papi']; ?>"><?= $row['papi']; ?></option>
+				<?php endwhile; ?>
+			</select>
+		</li>
+	</ul>
 
 	<div class="table-data">
 		<div class="order">
@@ -69,6 +82,7 @@ $query = mysqli_query($mysqli, "SELECT * from tb_santri");
 	</div>
 </main>
 <!-- MAIN -->
+</section>
 
 <script src="../template/script.js"></script>
 

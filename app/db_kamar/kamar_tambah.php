@@ -17,10 +17,7 @@ require_once '../template/navbar.php';
 	<link href="../template/style.css" rel="stylesheet">
 	<h1>Menambah Kamar</h1>
 	<br>
-	<form>
-		<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
+	<form action="" method="post">
 		<div class="select-box">
 			<label>Santri</label>
 			<a style="padding-left: 19px;">:</a>
@@ -80,6 +77,9 @@ require_once '../template/navbar.php';
 
 
 <script src="../template/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
 <script>
 	function asra() {
 		var jenis = $('#jenis').val();

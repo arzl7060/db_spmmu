@@ -39,11 +39,13 @@ li {
 	--light-orange: #FFE0D3;
 	--green: #06a342;
 }
+
 /* mendefinisikan beberapa variabel CSS custom menggunakan fitur variabel (variables) CSS. Variabel-variabel ini dapat digunakan di dalam file CSS tersebut atau bahkan didalam file CSS lainnya untuk membuat kode lebih modular dan mudah digunakan. */
 
 html {
 	overflow-x: hidden;
 }
+
 /* mengatur bagaimana konten yang melebihi lebar elemen ditampilkan. Dalam kasus ini, overflow-x: hidden; menghilangkan konten yang melebihi lebar elemen dan memotongnya, sehingga tidak menampilkan bagian yang melebihi. */
 
 body.dark {
@@ -51,6 +53,7 @@ body.dark {
 	--grey: #060714;
 	--dark: #FBFBFB;
 }
+
 /* mengatur beberapa variabel CSS custom menggunakan fitur variabel (variables) CSS dalam tema gelap (body.dark) */
 
 body {
@@ -385,7 +388,7 @@ body {
 /* MAIN */
 #content main {
 	width: 100%;
-	padding: 36px 24px;
+	padding: 30px 36px;
 	font-family: var(--poppins);
 	max-height: calc(100vh - 56px);
 	overflow-y: auto;
@@ -496,7 +499,7 @@ body {
 #content main .table-data {
 	display: flex;
 	flex-wrap: wrap;
-	grid-gap: 24px;
+	grid-gap: 50px;
 	margin-top: 24px;
 	width: 100%;
 	color: var(--dark);
@@ -528,7 +531,7 @@ body {
 
 #content main .table-data .order {
 	flex-grow: 1;
-	flex-basis: 500px;
+	flex-basis: 600px;
 }
 
 #content main .table-data .order table {
@@ -588,7 +591,7 @@ body {
 
 #content main .table-data .todo {
 	flex-grow: 1;
-	flex-basis: 300px;
+	flex-basis: 200px;
 }
 
 #content main .table-data .todo .todo-list {
@@ -693,9 +696,10 @@ body {
 
 
 /* KAMAR */
-#content .kamar{
+#content .kamar {
 	background: var(--grey);
 }
+
 /* select-box */
 #content form .select-box {
 	position: relative;
@@ -715,9 +719,49 @@ body {
 
 /* KAMAR */
 
+/* Control data */
+#content main .controler {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	grid-gap: 16px;
+	flex-wrap: wrap;
+	font-size: large;
+}
+
+#content main .controler li {
+	float: left;
+}
+
+#content main .controler .select-control {
+	display: flex;
+	width: 300px;
+	position: relative;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: var(--dark-grey);
+	border: 3px solid var(--dark-grey);
+}
+
+#content main .controler .select-control label {
+	width: 60px;
+	color: var(--light);
+	margin: 0px 0px 0px 30px;
+}
+
+#content .controler .select-control select {
+	width: 160px;
+	padding: 0 6px;
+	height: 36px;
+	color: var(--dark);
+	background-color: var(--grey);
+	border: 0px;
+	border-radius: 7px 9px 9px 7px;
+}
 
 /* SANTRI */
-
 /* Title */
 /* #content main {
 	width: 100%;
@@ -727,14 +771,15 @@ body {
 	overflow-y: auto;
 	margin: 0px 0px 0px 0px;
 } */
-#content .container{
-	
+#content .container {
+
 	max-width: 100%;
 	padding: 30px 30px;
 	max-height: calc(100vh - 56px);
 	overflow-y: auto;
-	margin: 0px 0px 0px 0px; 
+	margin: 0px 0px 0px 0px;
 }
+
 #content .container .head-santri {
 	display: flex;
 	/* layar susun samping */
@@ -748,6 +793,7 @@ body {
 	/* Jika elemen-elemen tidak muat dalam satu baris, maka flex-wrap: wrap akan membuat baris baru untuk menampung elemen-elemen tersebut */
 	font-family: var(--poppins);
 }
+
 #content .container .head-santri .left h1 {
 	font-size: 36px;
 	font-weight: 600px;
@@ -783,6 +829,7 @@ body {
 	margin-bottom: 7px;
 	width: 600px;
 }
+
 #content .container form h4 {
 	color: var(--dark);
 
@@ -797,7 +844,8 @@ body {
 	grid-gap: 26px;
 	margin-bottom: 8px;
 }
-#content .container form ul li{
+
+#content .container form ul li {
 	position: relative;
 	width: 290px;
 	margin: none;
@@ -806,9 +854,11 @@ body {
 	margin: none;
 	grid-gap: 9px;
 }
+
 #content .container form ul li label {
 	color: var(--dark);
 }
+
 #content .container form ul li input {
 	width: 100%;
 	height: 36px;
@@ -820,6 +870,7 @@ body {
 	color: var(--dark);
 	margin-bottom: 5px;
 }
+
 #content .container form ul li .date {
 	width: 70%;
 	height: 36px;
@@ -836,6 +887,7 @@ body {
 #content .container form .select-bro label {
 	width: 100%;
 }
+
 #content .container form .select-bro select {
 	padding: 0 16px;
 	border-radius: 36px 36px 36px 36px;
@@ -846,9 +898,11 @@ body {
 	border: none;
 	background: var(--light);
 }
-#content .container form .form-floating{
+
+#content .container form .form-floating {
 	color: var(--dark);
 }
+
 /* select bro */
 
 #content .container form .form-floating textarea {
@@ -867,29 +921,41 @@ body {
 	float: right;
 	margin: 7px 0px 50px 0px;
 }
+
 #content .container form .foto-label {
 	width: 20%;
 	color: var(--dark);
 	float: left;
 	margin: 20px 0px 50px 0px;
 }
+
 #content .container form .foto input {
-margin: 12px 0px 0px 10px;
+	margin: 12px 0px 0px 10px;
 }
 
 .button {
-	background-color: #4CAF50; /* Warna awal */
-	color: white; /* Warna teks awal */
-	padding: 10px 20px; /* Padding untuk membuat lebih besar */
-	border: none; /* Menghilangkan border */
-	border-radius: 5px; /* Mengatur radius sudut */
-	cursor: pointer; /* Mengubah cursor menjadi tangan */
-	transition: background-color 1s ease, color .3s ease; /* Mengatur transisi warna dan teks */
-  }
-  .button:hover {
-	background-color: #3e8e41; /* Warna saat dihover */
-	color: #fff; /* Warna teks saat dihover */
-  }
+	background-color: #4CAF50;
+	/* Warna awal */
+	color: white;
+	/* Warna teks awal */
+	padding: 10px 20px;
+	/* Padding untuk membuat lebih besar */
+	border: none;
+	/* Menghilangkan border */
+	border-radius: 5px;
+	/* Mengatur radius sudut */
+	cursor: pointer;
+	/* Mengubah cursor menjadi tangan */
+	transition: background-color 1s ease, color .3s ease;
+	/* Mengatur transisi warna dan teks */
+}
+
+.button:hover {
+	background-color: #3e8e41;
+	/* Warna saat dihover */
+	color: #fff;
+	/* Warna teks saat dihover */
+}
 
 /* Post Foto */
 
