@@ -700,6 +700,55 @@ body {
 	background: var(--grey);
 }
 
+/* Data */
+#content main .table-data .asrama {
+	flex-grow: 1;
+	flex-basis: 200px;
+}
+
+#content main .table-data .asrama .head {
+	align-items: baseline;
+}
+
+#content main .table-data .asrama .head select {
+	border: none;
+	color: var(--blue);
+	font-size: 20px;
+	background-color: var(--light);
+}
+
+#content main .table-data .asrama .todo-list {
+	width: 100%;
+}
+
+#content main .table-data .asrama .todo-list li {
+	width: 100%;
+	margin-bottom: 16px;
+	background: var(--grey);
+	border-radius: 10px;
+	padding: 14px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 18px;
+}
+
+#content main .table-data .asrama .todo-list li .bx {
+	cursor: pointer;
+}
+
+#content main .table-data .asrama .todo-list li.completed {
+	border-left: 30px solid var(--blue);
+}
+
+#content main .table-data .asrama .todo-list li.not-completed {
+	border-left: 10px solid var(--orange);
+}
+
+#content main .table-data .asrama .todo-list li:last-child {
+	margin-bottom: 0;
+}
+
 /* select-box */
 #content form .select-box {
 	position: relative;

@@ -16,37 +16,34 @@ $query = mysqli_query($mysqli, "SELECT * from tb_kamar");
 			<h1>Data Kamar</h1>
 		</div>
 	</div>
+	<br>
 	<ul class="controler">
 		<li>
-			<a href="santri_tambah.php" class="btn btn-primary">Tambah Kamar</a>
-		</li>
-		<li class="select-control">
-			<label>Santri</label>
-			<select name="papi" id="papi">
-				<option>Semua santri</option>
-				<?php
-				$jenis = mysqli_query($mysqli, "SELECT * FROM jenis");
-				while ($row = mysqli_fetch_assoc($jenis)): ?>
-					<option value="<?= $row['id_papi']; ?>"><?= $row['papi']; ?></option>
-				<?php endwhile; ?>
-			</select>
+			<a href="kamar_tambah.php" class="btn btn-primary">Tambah Kamar</a>
 		</li>
 	</ul>
 	<div class="table-data">
-		<div class="todo">
+		<div class="asrama">
 			<div class="head">
 				<h3>Asrama</h3>
-				<i class='bx bx-plus'></i>
-				<i class='bx bx-filter'></i>
+				<select>
+					<option>Semua santri</option>
+					<?php
+					$jenis = mysqli_query($mysqli, "SELECT * FROM jenis");
+					while ($row = mysqli_fetch_assoc($jenis)): ?>
+						<option value="<?= $row['id_papi']; ?>"><?= $row['papi']; ?></option>
+					<?php endwhile; ?>
+				</select>
 			</div>
 			<ul class="todo-list">
+				<?php
+				$asrama = mysqli_query($mysqli, "SELECT * FROM tb_asrama");
+				while ($row = mysqli_fetch_assoc($asrama)): ?>
+					<li class="not-completed" value="<?= $row['id_asrama']; ?>"><?= $row['nama_asrama']; ?></li>
+				<?php endwhile; ?>
 				<li class="completed">
 					<p>Nama</p>
-					<i class='bx bx-dots-vertical-rounded'></i>
-				</li>
-				<li class="completed">
-					<p>Nama</p>
-					<i class='bx bx-dots-vertical-rounded'></i>
+
 				</li>
 			</ul>
 		</div>

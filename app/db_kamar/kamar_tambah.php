@@ -21,27 +21,23 @@ require_once '../template/navbar.php';
 		<div class="select-box">
 			<label>Santri</label>
 			<a style="padding-left: 19px;">:</a>
-			<select name="jenis" id="jenis" onchange="asra()" style="margin: 6px; margin-bottom: 12px;">
+			<select name="jenis" id="jenis" style="margin: 6px; margin-bottom: 12px;">
 				<option>Pilih...</option>
 				<?php
-				$query = mysqli_query($mysqli, "SELECT * FROM jenis");
-				while ($data = mysqli_fetch_array($query)) {
-					?>
-					<option value="<?= $data['id_papi'] ?>"><?= $data['papi'] ?></option>
-					<?php
-				}
+				$jenis = mysqli_query($mysqli, "SELECT * FROM jenis");
+				while ($row = mysqli_fetch_assoc($jenis)): ?>
+					<option value="<?= $row['id_papi']; ?>"><?= $row['papi']; ?></option>
+				<?php endwhile;
 				?>
 			</select>
 		</div>
-
 		<div class="select-box">
 			<label>Asrama</label>
 			<a style="padding-left: 8px;">:</a>
-			<select name="asrama" id="asrama" onchange="kam()" style="margin: 5px; margin-bottom: 10px;">
+			<select name="asrama" id="asrama" style="margin: 5px; margin-bottom: 10px;">
 				<option>Pilih...</option>
 			</select>
 		</div>
-
 		<div class="select-box">
 			<label>Kamar</label>
 			<a style="padding-left: 16px;">:</a>
@@ -81,11 +77,21 @@ require_once '../template/navbar.php';
 	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
-	function asra() {
-		var jenis = $('#jenis').val();
-		$('#asrama').load("get_asrama.php?id=" + jenis + "");
-
-	}
+	$(document).ready(function () {
+		$("#jenis").change(function () {
+			var id_papi = $(this).val();
+			$.ajax({
+				url: "get_asrama.php",
+				method: "POST",
+				data: { id_papi: id_papi },
+				success: function (data) {
+					$("#asrama").html(data);
+					$("#kamar").html('<option value="">Pilih Asrama</option>');
+				}
+			});
+		});
+	});
+</script>
 </script>
 </body>
 
